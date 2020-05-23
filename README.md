@@ -24,3 +24,13 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## Project initialization
+```
+vue create gb6
+cd gb6
+vue add bootstrap-vue
+npm instll vue2-leaflet leflet --save
+npm install --save axios
+```
