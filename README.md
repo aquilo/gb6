@@ -1,5 +1,7 @@
 # gb6
 
+Dieser Sketch dient als Einführung für Vue.JS. Die meisten Sachen sind Platzhalter (Titel startend mit "/") und funktionieren nicht. Es gibt nur eine einzige festverdrahtete (aber dynamisch ausgeführte) Infoabfrage. 
+
 ## Project setup
 ```
 npm install
