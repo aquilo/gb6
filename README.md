@@ -1,5 +1,7 @@
 # gb6
 
+Dieser Sketch dient als Einführung für Vue.JS. Die meisten Sachen sind Platzhalter (Titel startend mit "/") und funktionieren nicht. Es gibt nur eine einzige festverdrahtete (aber dynamisch ausgeführte) Infoabfrage. Bislang auch alles ohne spezifisches CSS.
+
 ## Project setup
 ```
 npm install
@@ -22,3 +24,13 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## Project initialization
+```
+vue create gb6
+cd gb6
+vue add bootstrap-vue
+npm instll vue2-leaflet leflet --save
+npm install --save axios
+```
