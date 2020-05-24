@@ -31,6 +31,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 vue create gb6
 cd gb6
 vue add bootstrap-vue
-npm instll vue2-leaflet leflet --save
+npm install vue2-leaflet leaflet --save
 npm install --save axios
 ```
