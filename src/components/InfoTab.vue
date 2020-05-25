@@ -44,11 +44,9 @@ export default {
                    infoQuery: '{"queryTopics":[{"level":"main","topic":"StatBevZH","divCls":"legmain","layers":"umkreis-statistik,bev,lk25,grenzen,gemeindegrenzen,seen","customQueries":{"umkreis-statistik":"special_query"},"customParams":{"radius":-500,"variante":0,"poly":""}}]}',
                     scale: "16000",
                     srid: 4326,
-                    bbox0: 
+                    bbox: 
                         this.latLng.lng + "," + this.latLng.lat + "," + 
                         this.latLng.lng + "," + this.latLng.lat,
-                    bbox: 
-                        '${this.latLng.lng},${this.latLng.lat},${this.latLng.lng},${this.latLng.lat}'
                 },
             };
             axios
