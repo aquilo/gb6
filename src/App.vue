@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-8">
           <div class="jumbotron">
-            <GbMap />
+            <GbMap v-on:mapclick="doMapClick" />
           </div>
         </div>
         <div class="col-md-4">
@@ -40,8 +40,10 @@
           </div>
           <div>
             <b-tabs content-class="mt-3">
-              <b-tab title="Karten" active> <TopicsList /></b-tab>
-              <b-tab title="Infos"><InfoTab /></b-tab>
+              <b-tab title="Karten" active>
+                <TopicsList /></b-tab>
+              <b-tab title="Infos">
+                <InfoTab v-bind:latLng="latLng">></InfoTab></b-tab>
             </b-tabs>
           </div>
         </div>
@@ -63,8 +65,22 @@ export default {
         TopicsList,
         InfoTab,
     },
-    methods: {}
-}
+    data () {
+      return {
+          latLng: {
+            lat: 47.37,
+            lng: 8.53
+          }
+      }
+    },
+    methods: {
+      doMapClick(wo) {
+        console.log(wo);
+        this.latLng = wo;
+      }
+    }
+ }
+
 </script>
 
 <style>

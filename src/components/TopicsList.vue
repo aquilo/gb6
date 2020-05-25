@@ -65,7 +65,6 @@
       },
 
       makeImg(tname) {
-        console.log(tname);
         return "https://maps.zh.ch/images/custom/themekl-" + tname.toLowerCase() + ".gif";
       },
 

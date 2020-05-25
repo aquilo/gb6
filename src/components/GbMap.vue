@@ -9,6 +9,7 @@
       @update:center="centerUpdate"
       @update:zoom="zoomUpdate"
       :crs="crs"
+      @click="handleMapClick"
     >
       <l-wms-tile-layer
         v-for="layer in layers"
@@ -94,9 +95,10 @@ export default {
         showLongText() {
             this.showParagraph = !this.showParagraph;
         },
-        innerClick() {
-            alert("Click!");
-        }
+        handleMapClick(event) {
+            this.$emit('mapclick', event.latlng);
+
+}
     }
 };
 </script>

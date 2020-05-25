@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-if="!infos">Loading Please wait...</div>
+    <div v-if="!infos">Click on the map to get infos!</div>
     <div v-else>
-      <span v-html="infos"></span>
+      <small><span v-html="infos"></span></small>
     </div>
   </div>
 </template>
@@ -15,21 +15,40 @@ export default {
     data() {
         return {
             infos: '',
+           // latLng: {lat: 1258708.2159642, lng: 2694038.7798523},
+
+        }
+    },
+
+    props: {
+        latLng: Object
+    }, 
+
+    watch: {
+        latLng: function() {
+            console.log(this.latLng.lat + " watch");
+            this.getInfos();
         }
     },
 
     beforeMount() {
-        this.getInfos();
+ //       this.getInfos();
     },
+
     methods: {
         getInfos() {
-            console.log("infos");
+          console.log(this.latLng.lat + " getInfos");
+             
             const config = {
                 params: {
-                    infoQuery: '{"queryTopics":[{"level":"main","topic":"AwelLHKlimaanalyseZH","divCls":"legmain","layers":"nacht-waermeinseleffekt,lk200,grenzen,gemeindegrenzen"}]}',
-                    scale: "159999.99999995314",
-                    srid: 2056,
-                    bbox: "2694038.7798523,1258708.2159643,2694038.7798523,1258708.2159643"
+                   infoQuery: '{"queryTopics":[{"level":"main","topic":"StatBevZH","divCls":"legmain","layers":"umkreis-statistik,bev,lk25,grenzen,gemeindegrenzen,seen","customQueries":{"umkreis-statistik":"special_query"},"customParams":{"radius":-500,"variante":0,"poly":""}}]}',
+                    scale: "16000",
+                    srid: 4326,
+                    bbox0: 
+                        this.latLng.lng + "," + this.latLng.lat + "," + 
+                        this.latLng.lng + "," + this.latLng.lat,
+                    bbox: 
+                        '${this.latLng.lng},${this.latLng.lat},${this.latLng.lng},${this.latLng.lat}'
                 },
             };
             axios
