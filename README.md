@@ -33,4 +33,6 @@ cd gb6
 vue add bootstrap-vue
 npm install vue2-leaflet leaflet --save
 npm install --save axios
+
+npm install vuex --save
 ```

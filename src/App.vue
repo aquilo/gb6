@@ -35,15 +35,23 @@
               type="text"
               id="myAllSearch"
               class="form-control"
-              placeholder="/Suche nach Adressen, Themen etc. ..."
+              placeholder="/Neue Supersuche nach Adressen, Themen etc. ..."
             />
           </div>
           <div>
             <b-tabs content-class="mt-3">
               <b-tab title="Karten" active>
-                <TopicsList /></b-tab>
+                <TopicsList />
+              </b-tab>
               <b-tab title="Infos">
-                <InfoTab v-bind:latLng="latLng">></InfoTab></b-tab>
+                <InfoTab v-bind:latLng="latLng">></InfoTab>
+                </b-tab>
+              <b-tab title="Legende">
+                <GbLegend>></GbLegend>
+              </b-tab>             
+              <b-tab title="Adresssuche">
+                <AddrSearch>></AddrSearch>
+              </b-tab>
             </b-tabs>
           </div>
         </div>
@@ -57,6 +65,8 @@
 import GbMap from './components/GbMap.vue';
 import TopicsList from './components/TopicsList.vue';
 import InfoTab from './components/InfoTab.vue';
+import GbLegend from './components/LegendTab.vue';
+import AddrSearch from './components/AddrSearch.vue';
 
 export default {
     name: 'App',
@@ -64,13 +74,12 @@ export default {
         GbMap,
         TopicsList,
         InfoTab,
+        GbLegend,
+        AddrSearch,
     },
     data () {
       return {
-          latLng: {
-            lat: 47.37,
-            lng: 8.53
-          }
+
       }
     },
     methods: {

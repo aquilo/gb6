@@ -31,11 +31,8 @@ export default {
         }
     },
 
-    beforeMount() {
- //       this.getInfos();
-    },
-
     methods: {
+
         getInfos() {
           console.log(this.latLng.lat + " getInfos");
              
@@ -52,8 +49,10 @@ export default {
             axios
                 .get(`https://maps.zh.ch/topics/query`, config)
                 .then((response) => {
-                    this.infos = response.data
-                })
+                    let r = response.data
+                    r = r.replace(/ src='\/im/g, " src='https://maps.zh.ch/im");
+                   r = r.replace(/ src="\/im/g, ' src="https://maps.zh.ch/im');
+                    this.infos = r;                })
                 .catch((error) => {
                     console.log(`ERROR: ${error}`);
                 });

@@ -1,31 +1,13 @@
 <template>
-  <div style="height: 500px; width: 100%;">
-    <l-map
-      v-if="showMap"
-      :zoom="zoom"
-      :center="center"
-      :options="mapOptions"
-      style="height: 100%;"
-      @update:center="centerUpdate"
-      @update:zoom="zoomUpdate"
-      :crs="crs"
-      @click="handleMapClick"
-    >
-      <l-wms-tile-layer
-        v-for="layer in layers"
-        :key="layer.name"
-        :base-url="baseUrl"
-        :layers="layer.layers"
-        :visible="layer.visible"
-        :name="layer.name"
-        layer-type="base"
-      >
-      </l-wms-tile-layer>
-    </l-map>
-    <div style="height: 50px overflow: auto;">
-      <p>Center is at {{ currentCenter }} and the zoom is: {{ currentZoom }}</p>
+    <div style="height: 500px; width: 100%;">
+        <l-map v-if="showMap" :zoom="zoom" :center="center" :options="mapOptions" style="height: 100%;" @update:center="centerUpdate" @update:zoom="zoomUpdate" :crs="crs" @click="handleMapClick">
+            <l-wms-tile-layer v-for="layer in layers" :key="layer.name" :base-url="baseUrl" :layers="layer.layers" :visible="layer.visible" :name="layer.name" layer-type="base">
+            </l-wms-tile-layer>
+        </l-map>
+        <div style="height: 50px overflow: auto;">
+            <p>Center is at {{ currentCenter }} and the zoom is: {{ currentZoom }}</p>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -98,7 +80,7 @@ export default {
         handleMapClick(event) {
             this.$emit('mapclick', event.latlng);
 
-}
+        }
     }
 };
 </script>
