@@ -10,6 +10,7 @@
                 <b-card :title="topic.title" :sub-title="topic.categorytitle" :img-src="makeImg(topic.name)" img-alt="Image" img-right img-height=41 img-width=51 tag="article" style="max-width: 20rem;" class="mb-2" body-class="myCard">
                     <b-card-text style="font-style:italic; font-size: 12px">
                         {{topic.organisationtitle}}
+                        <a href="#" @click="setTopic(topic.name)">Topics setzen</a>
                     </b-card-text>
                     <span style="display:none">{{ topic.keywords }}</span>
                     <!-- <b-button href="#" size="sm" variant="primary">i</b-button> -->
@@ -35,6 +36,9 @@ export default {
     },
 
     methods: {
+              setTopic(topic) {
+            this.$store.commit('SET_CURRENT_TOPIC', topic);
+              },
         getTopics() {
             console.log("ich hole Topics");
             const config = {
