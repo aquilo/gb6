@@ -8,7 +8,13 @@ import App from './App.vue'
 import Vuex from 'vuex';
 Vue.use(Vuex);
 
-Vue.config.productionTip = false
+// import GbZh from './assets/GbZh.js';
+// Vue.use(GbZh);
+
+
+Vue.config.productionTip = false;
+
+
 
 new Vue({
   store,

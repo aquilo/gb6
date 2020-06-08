@@ -22,7 +22,7 @@ export default {
 
     watch: {
         currentTopic: function() {
-            this.getLegend();
+           this.getLegend();
         }
     },
 
@@ -33,7 +33,7 @@ export default {
     methods: {
         getLegend() {            
             axios
-                .get(`https://maps.zh.ch/topics/`+ this.$store.state.currentTopic + `/legend`)
+                .get(`https://maps.zh.ch/topics/`+ this.currentTopic + `/legend`)
                 .then((response) => {
                     let r = response.data
                     r = r.replace(/ src='\/im/g, " src='https://maps.zh.ch/im");
@@ -50,3 +50,8 @@ export default {
 
 
 </script>
+<style scoped>
+.legtabtext {
+   color:red
+}
+</style>

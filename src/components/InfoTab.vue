@@ -2,7 +2,7 @@
   <div>
     <div v-if="!infos">Click on the map to get infos!</div>
     <div v-else>
-      <small><span v-html="infos"></span></small>
+      <small><span v-html="infos"></span></small>{{infos}}
     </div>
   </div>
 </template>
@@ -16,6 +16,19 @@ export default {
         return {
             infos: '',
            // latLng: {lat: 1258708.2159642, lng: 2694038.7798523},
+            GbZh : {
+  base: {
+    ViewerState:{
+        fireEvent(evt) {
+            if (evt == 'stattools') {
+              console.log("EEEEEEEEEEEEEEEEEEEEEEEEE");
+              console.log(evt);
+              console.log("EEEEEEEEEEEEEEEEEEEEEEEEE");
+            }
+        }  
+    }
+  }
+},
 
         }
     },
@@ -32,6 +45,8 @@ export default {
     },
 
     methods: {
+
+       
 
         getInfos() {
           console.log(this.latLng.lat + " getInfos");

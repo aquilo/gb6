@@ -79,7 +79,10 @@ export default {
     },
     data () {
       return {
-
+          latLng: {
+            lat: 47.37,
+            lng: 8.53
+          }
       }
     },
     methods: {
